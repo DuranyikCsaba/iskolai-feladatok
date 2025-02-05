@@ -68,8 +68,8 @@ const Dolgozo = sequelize.define('Dolgozo', {
         allowNull: false
     },
 }, {
-        tableName: 'dolgozok',
-        timestamps: false
-    });
+    tableName: 'dolgozok',
+    timestamps: false
+});
 
-    export default Dolgozo;
+export default Dolgozo;

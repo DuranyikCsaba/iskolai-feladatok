@@ -1,4 +1,4 @@
-### Create a new Dolgozo (PUT /api/dolgozo)
+###(PUT /api/dolgozo)  Új dolgozó felvétele
 PUT http://localhost:3000/api/dolgozo
 Content-Type: application/json
 
@@ -20,15 +20,15 @@ Content-Type: application/json
     "munkakor": "Ellenség"
 }
 
-### Get all Dolgozok (GET /api/dolgozo)
+###(GET /api/dolgozo) Minden dolgozó kilistázása
 GET http://localhost:3000/api/dolgozo
 Content-Type: application/json
 
-### Get a Dolgozo by ID (GET /api/dolgozo/:id)
-GET http://localhost:3000/api/dolgozo/2
+###(GET /api/dolgozo/:id) Egy dolgozó kilistázása ID alapján
+GET http://localhost:3000/api/dolgozo/5
 Content-Type: application/json
 
-### Update a Dolgozo (PATCH /api/dolgozo/:id)
+###(PATCH /api/dolgozo/:id) Dolgozó adatainak módosítása
 PATCH http://localhost:3000/api/dolgozo/2
 Content-Type: application/json
 
@@ -50,21 +50,20 @@ Content-Type: application/json
     "munkakor": "Ellenség Updated"
 }
 
-### Delete a Dolgozo (DELETE /api/dolgozo/:id)
+###(DELETE /api/dolgozo/:id) Dolgozó törlése
 DELETE http://localhost:3000/api/dolgozo/2
 Content-Type: application/json
 
-### Create a Dolgozo with missing data (PUT /api/dolgozo)
+###(PUT /api/dolgozo) Dolgozó felvétele hiányzó adatokkal
 PUT http://localhost:3000/api/dolgozo
 Content-Type: application/json
 
 {
     "vezeteknev": "Nemezis",
     "keresztnev": "Edit"
-    // Missing other required fields
 }
 
-### Create a Dolgozo with duplicate email (PUT /api/dolgozo)
+###(PUT /api/dolgozo) Dolgozó felvétele duplikált email címmel
 PUT http://localhost:3000/api/dolgozo
 Content-Type: application/json
 
@@ -77,11 +76,22 @@ Content-Type: application/json
     "TAJ_szam": 564325798,
     "lakhely": "Linz",
     "telefonszam": 208982587,
-    "email": "nemezisedits@ganyolda.com", // Duplicate email
+    "email": "nemezisedit@ganyolda.com",
     "ertesitesi_nev": "Selim Etkar",
     "ertesitesi_telefonszam": 987654321,
     "ertesitendo_jelleg": "Gyah",
     "statusz": true,
     "szerzodes_tipusa": true,
     "munkakor": "Ellenség"
+}
+
+###(PUT /api/dolgozo/:id/szabadsag) Szabadság igénylés
+
+PUT http://localhost:3000/api/dolgozo/926/szabadsag
+Content-Type: application/json
+
+{
+   "kezdete": "2021-06-01",
+   "vege": "2021-06-05",
+   "oka": "Műtét"
 }
