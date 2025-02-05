@@ -1,0 +1,87 @@
+### Create a new Dolgozo (PUT /api/dolgozo)
+PUT http://localhost:3000/api/dolgozo
+Content-Type: application/json
+
+{
+    "vezeteknev": "Nemezis",
+    "keresztnev": "Edit",
+    "szul_hely": "Nyiregyhaza",
+    "szul_datum": "1990-05-01",
+    "adoszam": 1122334455,
+    "TAJ_szam": 564325798,
+    "lakhely": "Linz",
+    "telefonszam": 208982587,
+    "email": "nemezisedits@ganyolda.com",
+    "ertesitesi_nev": "Selim Etkar",
+    "ertesitesi_telefonszam": 987654321,
+    "ertesitendo_jelleg": "Gyah",
+    "statusz": true,
+    "szerzodes_tipusa": true,
+    "munkakor": "Ellenség"
+}
+
+### Get all Dolgozok (GET /api/dolgozo)
+GET http://localhost:3000/api/dolgozo
+Content-Type: application/json
+
+### Get a Dolgozo by ID (GET /api/dolgozo/:id)
+GET http://localhost:3000/api/dolgozo/2
+Content-Type: application/json
+
+### Update a Dolgozo (PATCH /api/dolgozo/:id)
+PATCH http://localhost:3000/api/dolgozo/2
+Content-Type: application/json
+
+{
+    "vezeteknev": "Nemezis Updated",
+    "keresztnev": "Edit Updated",
+    "szul_hely": "Nyiregyhaza Updated",
+    "szul_datum": "1990-05-01",
+    "adoszam": 1122334455,
+    "TAJ_szam": 564325798,
+    "lakhely": "Linz Updated",
+    "telefonszam": 208982587,
+    "email": "nemezisedits@ganyolda.com",
+    "ertesitesi_nev": "Selim Etkar Updated",
+    "ertesitesi_telefonszam": 987654321,
+    "ertesitendo_jelleg": "Gyah Updated",
+    "statusz": false,
+    "szerzodes_tipusa": false,
+    "munkakor": "Ellenség Updated"
+}
+
+### Delete a Dolgozo (DELETE /api/dolgozo/:id)
+DELETE http://localhost:3000/api/dolgozo/2
+Content-Type: application/json
+
+### Create a Dolgozo with missing data (PUT /api/dolgozo)
+PUT http://localhost:3000/api/dolgozo
+Content-Type: application/json
+
+{
+    "vezeteknev": "Nemezis",
+    "keresztnev": "Edit"
+    // Missing other required fields
+}
+
+### Create a Dolgozo with duplicate email (PUT /api/dolgozo)
+PUT http://localhost:3000/api/dolgozo
+Content-Type: application/json
+
+{
+    "vezeteknev": "Nemezis",
+    "keresztnev": "Edit",
+    "szul_hely": "Nyiregyhaza",
+    "szul_datum": "1990-05-01",
+    "adoszam": 1122334455,
+    "TAJ_szam": 564325798,
+    "lakhely": "Linz",
+    "telefonszam": 208982587,
+    "email": "nemezisedits@ganyolda.com", // Duplicate email
+    "ertesitesi_nev": "Selim Etkar",
+    "ertesitesi_telefonszam": 987654321,
+    "ertesitendo_jelleg": "Gyah",
+    "statusz": true,
+    "szerzodes_tipusa": true,
+    "munkakor": "Ellenség"
+}

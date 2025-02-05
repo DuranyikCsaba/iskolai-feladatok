@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js.js",
+  "scripts": {
+    "test": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "backend": "file:",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mariadb": "^3.4.0",
+    "sequelize": "^6.37.5"
+  }
+}
