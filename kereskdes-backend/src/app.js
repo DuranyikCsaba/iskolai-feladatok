@@ -16,15 +16,17 @@ db.authenticate()
         db.sync({ force: true })
         .then(() => {
             console.log("A modellek szinkronizációja sikeres!");
+
+            app.listen(PORT, () => {
+                console.log(`A webszerver elindult a http://localhost${PORT}/ URL-en`);
+            });
         })
         .catch((err)=> {
             console.error("A modellek szinkrnizációja sikrtelen!");
             console.error(err)
         });
 
-        app.listen(PORT, () => {
-            console.log(`A webszerver elindult a http://localhost${PORT}/ URL-en`);
-        });
+        
     })
     .catch((err) => {
         console.error("Adatbázis kapcsolat kiépítése sikertelen!");
