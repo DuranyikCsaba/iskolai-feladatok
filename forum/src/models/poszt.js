@@ -9,10 +9,20 @@ const Poszt = sequelize.define(
             allowNull: false,
             autoIncrement: true,
             primaryKey: true,
+        },
+        felhasznaloId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        tartalom: {
+            type: DataTypes.TEXT,
+            allowNull: false,
         }
     },
     {
-
+        createdAt: 'letrehozas',
+        updatedAt: 'modositas',
+        
     },
   );
   
