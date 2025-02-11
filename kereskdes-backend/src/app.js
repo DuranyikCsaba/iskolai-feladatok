@@ -1,11 +1,14 @@
 import express from "express"
 import db from "./db.js"
 import VehicleModel from "./models/Vehicle.model.js";
+import VehicleRouter from "./routes/Vehicle.route.js";
 
 const app = express();
 const PORT = 3524;
 
 app.use(express.json());
+
+app.use("/api/v1/", VehicleRouter);
 
 db.authenticate()
     .then(() => {
