@@ -5,7 +5,7 @@ Content-Type: application/json
 
 {
     "felhasznaloId": 2,
-    "tartalom": "izéj"
+    "tartalom": "sanyne vedd fel"
 }
 
 ### Posztok lekérése (GET)
@@ -14,7 +14,7 @@ GET http://localhost:3524/poszt
 
 ### Poszt lekérése id-alapján (GET)
 
-GET http://localhost:3524/poszt/1
+GET http://localhost:3524/poszt/20
 
 ### Poszt törlése id alapján (DELETE)
 
@@ -23,10 +23,10 @@ DELETE  http://localhost:3524/poszt/1
 
 ### Poszt módosítása id alapján (PATCH)
 
-PATCH  http://localhost:3524/poszt/1
+PATCH  http://localhost:3524/poszt/4
 Content-Type: application/json
 
 {
     "felhasznaloID": 2,
-    "tartalom": "Ez is izéj"
+    "tartalom": "ne vedd fel"
 }

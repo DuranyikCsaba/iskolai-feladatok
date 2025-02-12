@@ -56,7 +56,7 @@ export default {
             const posztById = await PosztModel.findByPk(id);
 
             if(!posztById){
-                return res.sendStatus(404).json({
+                res.status(404).json({
                     error: true,
                     message: "A megadott id-vel nem található poszt!"
                 });
@@ -84,7 +84,7 @@ export default {
             const posztById = await PosztModel.findByPk(id);
 
             if(!posztById){
-                return res.sendStatus(404).json({
+                res.status(404).json({
                     error: true,
                     message: "A megadott id-vel nem található poszt!"
                 });
@@ -117,7 +117,7 @@ export default {
             const { tartalom } = req.body;
 
             if(!tartalom){
-                return res.status(404).json({
+                res.status(404).json({
                     error: true,
                     message: "A tartalom nem lehet üres"
                 })
@@ -126,7 +126,7 @@ export default {
             const posztById = await PosztModel.findByPk(id);
 
             if(!posztById){
-                return res.status(404).json({
+                res.status(404).json({
                     error: true,
                     message: "Nem található poszt ilyen id-val"
                 })
