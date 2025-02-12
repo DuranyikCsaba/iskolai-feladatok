@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="hu.katolikuskeri.asztali.BeallitasokController"
+            spacing="10" alignment="CENTER"
+            prefHeight="150" prefWidth="250">
+
+    <TextField fx:id="nevInput" promptText="Írd be a neved..." onKeyReleased="#updateName"/>
+
+    <Button text="Bezárás" onAction="#ablakBezárása"/>
+
+</VBox>
