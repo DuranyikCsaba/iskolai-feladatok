@@ -1,0 +1,32 @@
+### Poszt létrehozása (PUT)
+
+PUT http://localhost:3524/poszt
+Content-Type: application/json
+
+{
+    "felhasznaloId": 2,
+    "tartalom": "izéj"
+}
+
+### Posztok lekérése (GET)
+
+GET http://localhost:3524/poszt
+
+### Poszt lekérése id-alapján (GET)
+
+GET http://localhost:3524/poszt/1
+
+### Poszt törlése id alapján (DELETE)
+
+DELETE  http://localhost:3524/poszt/1
+
+
+### Poszt módosítása id alapján (PATCH)
+
+PATCH  http://localhost:3524/poszt/1
+Content-Type: application/json
+
+{
+    "felhasznaloID": 2,
+    "tartalom": "Ez is izéj"
+}
