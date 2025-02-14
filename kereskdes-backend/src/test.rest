@@ -1,0 +1,34 @@
+### Autó létrehozása alap adatokkal (PUT)
+
+PUT http://localhost:3524/api/v1/vehicle
+Content-Type: application/json
+
+{
+    "marka": "BMW",
+    "tipus": "320d",
+    "evjarat": 2012,
+    "ar": 3200000
+}
+
+### Autó létrehozása minden adattal (PUT)
+
+PUT http://localhost:3524/api/v1/vehicle
+Content-Type: application/json
+
+{
+    "marka": "BMW",
+    "tipus": "320d",
+    "evjarat": 2012,
+    "ar": 3200000,
+    "teljesitmeny": 163,
+    "szin": "Gyöngyház fehér",
+    "automataValtosE": false
+}
+
+### Autók lekérdezése (GET)
+
+GET http://localhost:3524/api/v1/vehicles
+
+### Autók lekérdezése adott azonosítóval (GET)
+
+GET http://localhost:3524/api/v1/vehicle/4
