@@ -21,7 +21,7 @@
          <children>
             <Label layoutX="14.0" layoutY="14.0" text="Új tanuló felvétele">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Label>
             <TextField fx:id="txtTanuloNeve" layoutX="163.0" layoutY="55.0">
@@ -41,7 +41,7 @@
             </Button>
             <Label layoutX="14.0" layoutY="173.0" text="Tanuló nevének módosítása">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Label>
             <Label layoutX="14.0" layoutY="221.0" text="Tanuló neve:">
@@ -59,7 +59,27 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="18.0" layoutY="394.0" mnemonicParsing="false" onMouseClicked="#tanuloTorlese" text="Tanuló törlése">
+            <Button layoutX="12.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#tanuloTorlese" text="Tanuló törlése">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="16.0" layoutY="383.0" text="Tanulók keresése">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="434.0" text="Keresett tanuló neve:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtKeresettTanulo" layoutX="247.0" layoutY="432.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Button layoutX="239.0" layoutY="486.0" mnemonicParsing="false" onMouseClicked="#tanulokereses" text="Keresés">
                <font>
                   <Font size="18.0" />
                </font>

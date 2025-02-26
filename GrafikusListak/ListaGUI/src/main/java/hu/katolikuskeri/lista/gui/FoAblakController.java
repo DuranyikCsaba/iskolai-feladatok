@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 public class FoAblakController {
     public TextField txtTanuloNeve;
     public TextField txtTanuloUjNeve;
+    public TextField txtKeresettTanulo;
     public ListView<String> ListTanulok;
 
     @FXML
@@ -87,5 +88,30 @@ public class FoAblakController {
                 "Tanuló sikeresen törölve!",
                 "A tanuló sikeresen törlésre került a névsorból!"
         );
+    }
+
+    @FXML
+    public void tanulokereses(){
+        String keresett = txtKeresettTanulo.getText();
+
+        if (keresett.isEmpty()){
+            App.parbeszedalbak(
+                    Alert.AlertType.ERROR,
+                    "Keresési Hiba!",
+                    "Nincs megadva a keresett tanuló neve!"
+            );
+            return;
+        }
+
+        int index = ListTanulok.getItems().indexOf(keresett);
+        if (index == -1){
+            App.parbeszedalbak(
+                    Alert.AlertType.INFORMATION,
+                    "Keresés eredménye",
+                    "A megadott tanuló nincs a névsorban!"
+            );
+            return;
+        }
+        ListTanulok.getSelectionModel().select(index);
     }
 }
