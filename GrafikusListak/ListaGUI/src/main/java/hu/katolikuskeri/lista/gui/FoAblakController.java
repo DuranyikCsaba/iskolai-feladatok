@@ -1,15 +1,47 @@
 package hu.katolikuskeri.lista.gui;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class FoAblakController {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.Scanner;
+
+public class FoAblakController implements Initializable {
     public TextField txtTanuloNeve;
     public TextField txtTanuloUjNeve;
     public TextField txtKeresettTanulo;
     public ListView<String> ListTanulok;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        /*ListTanulok.getItems().add("Dundi Zsolti");
+        ListTanulok.getItems().add("Kurej Laci");
+        ListTanulok.getItems().add("Nemezis Edit");
+        ListTanulok.getItems().add("Féregházi");
+        ListTanulok.getItems().add("Levi Levi");*/
+        try {
+            Scanner olvaso = new Scanner(new File("nevsor.txt"));
+
+            while (olvaso.hasNextLine()){
+                ListTanulok.getItems().add(olvaso.nextLine());
+            }
+
+            olvaso.close();
+        }
+        catch (FileNotFoundException e){
+            App.parbeszedalbak(
+                    Alert.AlertType.ERROR,
+                    "Betöltési hiba!",
+                    "A névsor betöltése fájlhiba miatt sikertelen!"
+            );
+        }
+    }
 
     @FXML
     public void ujTanloHozzaadasa(){
