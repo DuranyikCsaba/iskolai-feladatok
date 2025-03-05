@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,6 +26,18 @@ public class FoAblakController implements Initializable {
         ListTanulok.getItems().add("Nemezis Edit");
         ListTanulok.getItems().add("Féregházi");
         ListTanulok.getItems().add("Levi Levi");*/
+        FileChooser megnyitasAblak = new FileChooser();
+        megnyitasAblak.setTitle("Névsort tartalmazó állomány megnyitása");
+        megnyitasAblak.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter(
+                        "Névsor állomány",
+                        "*.txt"
+                )
+        );
+        File beolvasandoFajl = megnyitasAblak.showOpenDialog(App.foAblak);
+        if (beolvasandoFajl == null){
+            beolvasandoFajl = new File("nevsor.txt");
+        }
         try {
             Scanner olvaso = new Scanner(new File("nevsor.txt"));
 

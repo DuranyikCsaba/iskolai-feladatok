@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -21,6 +22,8 @@ import java.util.Optional;
  * JavaFX App
  */
 public class App extends Application {
+
+    public  static Stage foAblak;
 
     private static Scene scene;
 
@@ -43,9 +46,24 @@ public class App extends Application {
 
             Optional<ButtonType> eredmeny = kerdes.showAndWait();
             if (eredmeny.get() == btnIgen){
+
+                FileChooser fajlMentese = new FileChooser();
+                fajlMentese.setTitle("Névsor mentése...");
+                fajlMentese.getExtensionFilters().add(
+                        new FileChooser.ExtensionFilter(
+                                "Névsor állomány",
+                                "*.txt"
+                        )
+                );
+
+                File falj = fajlMentese.showSaveDialog(App.foAblak);
+                if (falj == null){
+                    falj = new File("nevsor.txt");
+                }
+
                 try {
                     PrintWriter iro = new PrintWriter(
-                            new File("nevsor.txt"),
+                            falj,
                             Charset.forName("UTF-8")
                     );
 
@@ -67,6 +85,7 @@ public class App extends Application {
                 }
             }
         });
+        foAblak = stage;
         stage.show();
     }
 
