@@ -1,17 +1,18 @@
 import express from "express"
 import db from "./src/config/db.js"
 import PosztModel from "./src/models/poszt.js"
+import PosztRouter from "./src/routes/posztRoutes.js";
 
 const app = express();
 const PORT = 3524;
 
 app.use(express.json());
 
+app.use("/", PosztRouter);
+
 db.authenticate()
 .then(() => {
     console.log("Az adatbázis kapcsolat kiépítése sikeres!")
-
-    db.modelManager.addModel(PosztModel);
 
     db.sync({ force: true })
     .then(()=>{

@@ -1,8 +1,11 @@
 import VehicleModel from "../models/Vehicle.model.js";
 
 export default {
-    VehiclePut: (res, req) =>{
-        if((req.body.marka === undefined)|| (req.body.tipus === undefined) || (req.body.evjarat === undefined) ||(req.body.ar === undefined)){
+    VehiclePut: (req, res) =>{
+
+        console.log( req.body );
+
+        if((!req.body.marka) || (!req.body.tipus) || (!req.body.evjarat) || (!req.body.ar)){
             return res.status(400).json({
                 error: true,
                 message: "A kötelező adatok hiányoznak!"
@@ -19,12 +22,12 @@ export default {
         };
         
         if((req.body.szin !== undefined)){
-            ujJarmu.szin = req.body.teljesitmeny;
+            ujJarmu.szin = req.body.szin;
         };
 
         
         if((req.body.automataValtosE !== undefined)){
-            ujJarmu.automataValtosE = req.body.teljesitmeny;
+            ujJarmu.automataValtosE = req.body.automataValtosE;
         };
 
         ujJarmu.save()
@@ -44,19 +47,59 @@ export default {
         });
 
     },
-    VehiclesGet: (res, req) =>{
+    VehiclesGet: (req, res) =>{
+
+        VehicleModel.findAll()
+        .then((vehicles) =>{
+            res.status(200).json({
+                error: false,
+                vehicles
+            });
+        })
+        .catch((err) => {
+            console.error("A jármű létrehozása során hiba történt");
+            console.error(err);
+            res.status(500).json({
+                error: true,
+                message: "A járművek lekérdezése során adatbázis hiba történt!"
+            })
+        })
+
+    },
+    VehicleIdPatch: (req, res) =>{
         res.sendStatus(501);
     },
-    VehicleIdPatch: (res, req) =>{
+    VehicleIdDelete: (req, res) =>{
         res.sendStatus(501);
     },
-    VehicleIdDelete: (res, req) =>{
-        res.sendStatus(501);
+    VehicleIdGet: (req, res) =>{
+        const id = req.params.id;
+        VehicleModel.findByPk(id)
+        .then((vehicle) => {
+            if(vehicle){
+            res.status(200).json({
+                error: false,
+                message: "A jármű lekérdezése sikeres",
+                vehicle
+            })
+        }else{
+            res.status(404).json({
+                error: true,
+                message: "Ilyen jármű nem létezik",
+            })
+        }
+        })
+        .catch((err) => {
+            console.error("Egy jármű lekérdezése során adatbázis hiba történt");
+            console.error(err)
+            res.status(500).json({
+                error: true,
+                message: "Egy jármű lekérdezése során adatbázis hiba történt"
+            })
+        });
+
     },
-    VehicleIdGet: (res, req) =>{
-        res.sendStatus(501);
-    },
-    VehiclesPost: (res, req) =>{
+    VehiclesPost: (req, res) =>{
         res.sendStatus(501);
     },
 };

@@ -1,0 +1,22 @@
+{
+  "name": "webshop-backend",
+  "version": "0.1.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "Benkő Bálint",
+  "license": "ISC",
+  "description": "Póló árusító webshop backend szervere",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mariadb": "^3.4.0",
+    "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

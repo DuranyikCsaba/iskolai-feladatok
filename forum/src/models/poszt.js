@@ -1,4 +1,4 @@
-import sequelize from "../config/db";
+import sequelize from "../config/db.js";
 import { Sequelize, DataTypes } from "sequelize";
 
 const Poszt = sequelize.define(
@@ -22,7 +22,7 @@ const Poszt = sequelize.define(
     {
         createdAt: 'letrehozas',
         updatedAt: 'modositas',
-        
+        tableName: 'poszt'
     },
   );
   
@@ -30,4 +30,4 @@ const Poszt = sequelize.define(
   console.log(Poszt === sequelize.models.Poszt);
 
 
-export default sequelize;
+export default Poszt;
