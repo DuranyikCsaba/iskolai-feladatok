@@ -1,0 +1,21 @@
+{
+  "name": "penly_backend",
+  "version": "0.0.2",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Durányik Csaba",
+  "license": "ISC",
+  "description": "Penly Írószer Webshop REST API kiszolgálója",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mariadb": "^3.4.0",
+    "sequelize": "^6.37.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
