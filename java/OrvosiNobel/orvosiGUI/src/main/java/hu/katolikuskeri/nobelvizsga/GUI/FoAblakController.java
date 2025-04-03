@@ -53,6 +53,6 @@ public class FoAblakController implements Initializable {
         Dijazott kivalasztott = lstDijazottak.getSelectionModel().getSelectedItem();
         kivalasztott.setElnyeresEve(Integer.parseInt(txtDijazasEve.getText()));
         kivalasztott.setNev(txtDijazottNeve.getText());
-        kivalasztott.getSzuletesEve(Integer.parseInt(txtSzuletesiEv.getText()));
+        kivalasztott.setSzuletesEve(Integer.parseInt(txtSzuletesiEv.getText()));
     }
 }
