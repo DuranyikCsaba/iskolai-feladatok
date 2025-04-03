@@ -48,4 +48,11 @@ public class FoAblakController implements Initializable {
         }
         txtOrszagkod.setText(kivaslaztott.getOrszagKod());
     }
+
+    public void mentes(){
+        Dijazott kivalasztott = lstDijazottak.getSelectionModel().getSelectedItem();
+        kivalasztott.setElnyeresEve(Integer.parseInt(txtDijazasEve.getText()));
+        kivalasztott.setNev(txtDijazottNeve.getText());
+        kivalasztott.getSzuletesEve(Integer.parseInt(txtSzuletesiEv.getText()));
+    }
 }

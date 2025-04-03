@@ -41,7 +41,7 @@
             <Insets left="15.0" />
          </BorderPane.margin>
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" text="Módosításaok mentése" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#mentes" text="Módosításaok mentése" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                <font>
                   <Font size="18.0" />
                </font>
