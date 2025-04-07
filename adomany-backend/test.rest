@@ -1,0 +1,9 @@
+### PUT (adomany letrehozasa)
+
+PUT http://localhost:3522/api/donation
+Content-Type: application/json
+
+{
+    "osszeg": 15000,
+    "nev": "Danó"
+}
