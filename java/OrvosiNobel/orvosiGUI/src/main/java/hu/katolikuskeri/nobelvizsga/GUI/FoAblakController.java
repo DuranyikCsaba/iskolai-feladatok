@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import hu.katolikuskeri.nobelvizsga.cli.Dijazott;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -51,8 +52,38 @@ public class FoAblakController implements Initializable {
 
     public void mentes(){
         Dijazott kivalasztott = lstDijazottak.getSelectionModel().getSelectedItem();
-        kivalasztott.setElnyeresEve(Integer.parseInt(txtDijazasEve.getText()));
+        try{
+            kivalasztott.setElnyeresEve(Integer.parseInt(txtDijazasEve.getText()));
+        }catch (NumberFormatException ex){
+            Alert hibauzenet = new Alert(Alert.AlertType.ERROR);
+            hibauzenet.setTitle("Helytelen évszám!");
+            hibauzenet.setHeaderText(null);
+            hibauzenet.setContentText("Az elnyerés éve mezőben nem évszám található!");
+            hibauzenet.showAndWait();
+            return;
+        }
+
+        try{
+            kivalasztott.setSzuletesEve(Integer.parseInt(txtSzuletesiEv.getText()));
+        }catch (NumberFormatException ex){
+            Alert hibauzenet = new Alert(Alert.AlertType.ERROR);
+            hibauzenet.setTitle("Helytelen évszám!");
+            hibauzenet.setHeaderText(null);
+            hibauzenet.setContentText("Az születés éve mezőben nem évszám található!");
+            hibauzenet.showAndWait();
+            return;
+        }
+
         kivalasztott.setNev(txtDijazottNeve.getText());
-        kivalasztott.setSzuletesEve(Integer.parseInt(txtSzuletesiEv.getText()));
+
+        if (txtHalalozasiEv.getText().equals("-")) {
+            kivalasztott.setHalalozasEve(0);
+        }else{
+            kivalasztott.setHalalozasEve(Integer.parseInt(txtHalalozasiEv.getText()));
+        }
+        kivalasztott.setOrszagKod(txtOrszagkod.getText());
     }
+
+
+
 }
